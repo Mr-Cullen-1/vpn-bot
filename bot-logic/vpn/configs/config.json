@@ -1,0 +1,39 @@
+{
+  "log": {
+    "loglevel": "info"
+  },
+  "api": {
+    "services": [
+      "HandlerService",
+      "StatsService",
+      "LoggerService"
+    ],
+    "tag": "api"
+  },
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp"
+      }
+    },
+    {
+      "port": 10085,
+      "listen": "0.0.0.0",
+      "protocol": "http",
+      "tag": "api"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
+
